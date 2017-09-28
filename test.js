@@ -16,6 +16,6 @@ const html = jade.renderFile('./views/posts.jade', {
 });
 
 // スクリプトタグがエスケープされて含まれていることをチェック
-assert(html.indexOf('&lt;script&gt;alert(\'test\');&lt;/script&gt;') > 0);
+assert(html.indexOf('&lt;script&gt;alert(\'test\');&lt;/script&gt;') >= 0);
 console.log('テストが正常に完了しました');
 
