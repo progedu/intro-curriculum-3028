@@ -32,7 +32,7 @@ html(lang="jp")
           else
             span #{post.id} : ID:#{post.trackingCookie}
         div(class="panel-body")
-          p(style="white-space:pre;") #{post.content}
+          p(style="white-space:pre-wrap;") #{post.content}
         div(class="panel-footer")
           div 投稿日時: #{post.formattedCreatedAt}
           - var isAdmin = (user === 'admin')
