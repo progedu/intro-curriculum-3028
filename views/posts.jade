@@ -11,18 +11,43 @@ html(lang="jp")
     integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r",
     crossorigin="anonymous")
     title 秘密の匿名掲示板
-  body(class="container")
+  body(class="container bg-info")
     div(class="page-header")
       a(href="/logout", class="btn btn-info pull-right") ログアウト
-      h1 秘密の匿名掲示板
-    h2 新規投稿
+      h1(class="text-primary") 秘密の匿名掲示板
+    h2(class="text-warning") 新規投稿
     form(method="post", action="/posts")
       div(class="form-group")
         textarea(name="content", class="form-control", rows="4")
       div(class="form-group")
+        button(type="submit", class="btn btn-default pull-right") 投稿
+        button(type="submit", class="btn btn-primary pull-right") 投稿
+        button(type="submit", class="btn btn-success pull-right") 投稿
         button(type="submit", class="btn btn-info pull-right") 投稿
+        button(type="submit", class="btn btn-warning pull-right") 投稿
+        button(type="submit", class="btn btn-danger pull-right") 投稿
+        button(type="submit", class="btn btn-link pull-right") 投稿
+        br
+        p
+          button(type="submit", class="btn btn-default btn-lg pull-left") 投稿
+          button(type="submit", class="btn btn-primary btn-lg pull-left") 投稿
+        br
+        br
+        br
+        p
+          button(type="submit", class="btn btn-default pull-left") 投稿
+          button(type="submit", class="btn btn-primary pull-left") 投稿
+        br
+        br
+        p
+          button(type="submit", class="btn btn-default btn-sm pull-left") 投稿
+          button(type="submit", class="btn btn-primary btn-sm pull-left") 投稿
+        br
+        p
+          button(type="submit", class="btn btn-default btn-xs pull-left") 投稿
+          button(type="submit", class="btn btn-primary btn-xs pull-left") 投稿
       div(class="row")
-    h2 投稿一覧
+    h2(class="text-danger") 投稿一覧
     each post in posts
       div(class="panel panel-default")
         div(class="panel-heading")
