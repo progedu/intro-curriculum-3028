@@ -11,11 +11,22 @@ const html = pug.renderFile('./views/posts.pug', {
     trackingCookie: 1,
     createdAt: new Date(),
     updatedAt: new Date()
-  }],
+  },
+  {
+    id: 2,
+    content: '    ',
+    postedBy: 'guest1',
+    trackingCookie: 1,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+],
   user: 'guest1'
 });
 
 // スクリプトタグがエスケープされて含まれていることをチェック
 assert(html.includes('&lt;script&gt;alert(\'test\');&lt;/script&gt;'));
+// 半角スペースが正常に表示されることをチェック
+assert(html.includes('    '));
 console.log('テストが正常に完了しました');
 
