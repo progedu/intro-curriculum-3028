@@ -1,6 +1,7 @@
 'use strict';
 const pug = require('pug');
 const assert = require('assert');
+const handler = require('./lib/posts-handler');
 
 // pug のテンプレートにおける XSS 脆弱性のテスト
 const html = pug.renderFile('./views/posts.pug', {
@@ -18,4 +19,3 @@ const html = pug.renderFile('./views/posts.pug', {
 // スクリプトタグがエスケープされて含まれていることをチェック
 assert(html.includes('&lt;script&gt;alert(\'test\');&lt;/script&gt;'));
 console.log('テストが正常に完了しました');
-
