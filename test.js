@@ -16,8 +16,22 @@ const html = pug.renderFile('./views/posts.pug', {
   user: 'guest1'
 });
 
-// スクリプトタグがエスケープされて含まれていることをチェック
-assert(html.includes('&lt;script&gt;alert(\'test\');&lt;/script&gt;' +
-  'nnn ed  nico'));
-console.log('テストが正常に完了しました');
+// 半角スペースの投稿閲覧テスト
+const html_sp = pug.renderFile('./views/posts.pug', {
+  posts: [{
+    id: 1,
+    content: 'nnn ed  nico',
+    postedBy: 'guest2',
+    trackingCookie: 1,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }],
+  user: 'guest2'
+});
 
+// スクリプトタグがエスケープされて含まれていることをチェック
+assert(html.includes('&lt;script&gt;alert(\'test\');&lt;/script&gt;'));
+
+// 半角スペースを投稿して閲覧できるかをチェック
+assert(html_sp.includes('nnn ed  nico'));
+console.log('テストが正常に完了しました');
