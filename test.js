@@ -18,4 +18,3 @@ const html = pug.renderFile('./views/posts.pug', {
 // スクリプトタグがエスケープされて含まれていることをチェック
 assert(html.includes('&lt;script&gt;alert(\'test\');&lt;/script&gt;'));
 console.log('テストが正常に完了しました');
-
