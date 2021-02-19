@@ -11,11 +11,21 @@ const html = pug.renderFile('./views/posts.pug', {
     trackingCookie: 1,
     createdAt: new Date(),
     updatedAt: new Date()
-  }],
+  },{
+    id: 2,
+    content: 'test test',
+    postedBy: 'guest1',
+    trackingCookie: 1,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+  ],
   user: 'guest1'
 });
 
 // スクリプトタグがエスケープされて含まれていることをチェック
 assert(html.includes('&lt;script&gt;alert(\'test\');&lt;/script&gt;'));
+// ' 'が+に変換されていないことをチェック
+assert(html.includes('+'));
 console.log('テストが正常に完了しました');
 
