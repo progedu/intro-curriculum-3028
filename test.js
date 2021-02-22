@@ -6,7 +6,7 @@ const assert = require('assert');
 const html = pug.renderFile('./views/posts.pug', {
   posts: [{
     id: 1,
-    content: '<script>alert(\'test\');</script>',
+    content: '空 白 を 空 白 で 認 識 す る か 実 験',
     postedBy: 'guest1',
     trackingCookie: 1,
     createdAt: new Date(),
@@ -15,7 +15,7 @@ const html = pug.renderFile('./views/posts.pug', {
   user: 'guest1'
 });
 
-// スクリプトタグがエスケープされて含まれていることをチェック
-assert(html.includes('&lt;script&gt;alert(\'test\');&lt;/script&gt;'));
+// 空白が空白として認識されるか実験
+assert(html.includes('空 白 を 空 白 で 認 識 す る か 実 験'));
 console.log('テストが正常に完了しました');
 
