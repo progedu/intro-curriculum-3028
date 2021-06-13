@@ -13,9 +13,17 @@ const html = pug.renderFile('./views/posts.pug', {
     updatedAt: new Date()
   }],
   user: 'guest1'
+},{
+  id: 2,
+  content: ' ',
+  postedBy: 'guest1',
+  trackingCookie: 2,
+  createdAt: new Date(),
+  updatedAt: new Date()
 });
 
 // スクリプトタグがエスケープされて含まれていることをチェック
 assert(html.includes('&lt;script&gt;alert(\'test\');&lt;/script&gt;'));
 console.log('テストが正常に完了しました');
-
+assert(html.includes('\s'));
+console.log('テストが正常に完了しました');
